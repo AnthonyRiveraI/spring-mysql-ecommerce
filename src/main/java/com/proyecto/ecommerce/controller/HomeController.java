@@ -1,7 +1,6 @@
 package com.proyecto.ecommerce.controller;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -131,5 +130,9 @@ public class HomeController {
 		return "/usuario/carrito";
 	}
 	
+	@GetMapping("/order")
+	public String orden() {
+		return "usuario/resumenorden";
+	}
 	
 }
