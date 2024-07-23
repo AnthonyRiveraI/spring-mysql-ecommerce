@@ -19,6 +19,7 @@ import com.proyecto.ecommerce.service.IOrdenService;
 import com.proyecto.ecommerce.service.IUsuarioService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.Session;
 
 @Controller
 @RequestMapping("/usuario")
@@ -104,5 +105,12 @@ public class UsuarioController {
 		//session
 		model.addAttribute("sesion", session.getAttribute("idusuario"));
 		return "usuario/detallecompra";
+	}
+	
+	@GetMapping("/cerrar")
+	public String cerrarSesion(HttpSession session) {
+		
+		session.removeAttribute("idusuario");
+		return "redirect:/";
 	}
 }
